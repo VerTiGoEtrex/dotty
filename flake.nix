@@ -10,7 +10,6 @@
     # NixOS Hardware for thinkpad config
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
-      inputs.nixpkgs.follows = "unstable";
     };
     # HM-manager for dotfile/user management
     home-manager = {
