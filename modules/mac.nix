@@ -14,7 +14,7 @@ users.users.ncrocker = {
 };
 
 services.yabai = {
-  enable = true;
+  enable = false;
   enableScriptingAddition = true;
   package = pkgs.yabai;
   config = {

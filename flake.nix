@@ -1,30 +1,25 @@
 {
   inputs = {
     # All packages should follow latest nixpkgs/nur
-    unstable.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "nixpkgs/nixos-22.11";
     # Nix-Darwin
     darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    # NixOS Hardware for thinkpad config
+    # NixOS Hardware for extra config
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
     # HM-manager for dotfile/user management
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "unstable";
+      url = "github:nix-community/home-manager/release-22.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # Bar (macos)
     spacebar = {
       url = "github:shaunsingh/spacebar";
-      inputs.nixpkgs.follows = "unstable";
-    };
-    # WM
-    yabai-src = {
-      url = "github:koekeishiya/yabai";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: {
@@ -33,7 +28,7 @@
       system = "aarch64-darwin";
       modules = [
         ./modules/mac.nix
-        ./modules/pam.nix
+        # ./modules/pam.nix
         home-manager.darwinModule
         {
           home-manager = {
