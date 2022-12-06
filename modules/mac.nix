@@ -13,7 +13,7 @@ users.users.ncrocker = {
   home = "/Users/ncrocker";
   shell = pkgs.zsh;
 };
-# programs.zsh.enable = true;
+programs.zsh.enable = true;
 # system.activationScripts.postActivation.text = ''
 #   # Set the default shell as zsh for the user. MacOS doesn't do this like nixOS does
 #   sudo chsh -s ${lib.getBin pkgs.zsh}/bin/zsh ncrocker
