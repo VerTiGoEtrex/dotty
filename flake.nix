@@ -48,6 +48,7 @@
               spacebar.overlay
             ];
           };
+          environment.shells = [ pkgs.zsh ];
         })
       ];
     };

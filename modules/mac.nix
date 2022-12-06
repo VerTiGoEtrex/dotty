@@ -3,15 +3,21 @@
 nix = {
   package = pkgs.nix;
   extraOptions = ''
-    system = aarch64-darwin # M1 gang
-    extra-platforms = aarch64-darwin x86_64-darwin # But we use rosetta too
+    system = aarch64-darwin
+    extra-platforms = aarch64-darwin x86_64-darwin
     experimental-features = nix-command flakes
     build-users-group = nixbld
   '';
 };
 users.users.ncrocker = {
   home = "/Users/ncrocker";
+  shell = pkgs.zsh;
 };
+# programs.zsh.enable = true;
+# system.activationScripts.postActivation.text = ''
+#   # Set the default shell as zsh for the user. MacOS doesn't do this like nixOS does
+#   sudo chsh -s ${lib.getBin pkgs.zsh}/bin/zsh ncrocker
+# '';
 
 services.yabai = {
   enable = false;
