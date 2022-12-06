@@ -28,7 +28,6 @@
       system = "aarch64-darwin";
       modules = [
         ./modules/mac.nix
-        # ./modules/pam.nix
         home-manager.darwinModule
         {
           home-manager = {

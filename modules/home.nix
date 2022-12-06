@@ -4,6 +4,8 @@ home.stateVersion = "21.11";
 home.packages = with pkgs; [
 ];
 
+programs.zsh.enable = true;
+
 programs.git = {
   enable = true;
   userName = "ncrocker";
