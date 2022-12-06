@@ -1,5 +1,7 @@
 { pkgs, lib, config, home-manager, nix-darwin, inputs, ... }: {
 
+imports = [./vscode.nix];
+
 home.stateVersion = "21.11";
 home.packages = with pkgs; [
 ];

@@ -42,13 +42,16 @@
         }
         ({ config, pkgs, lib, ... }: {
           services.nix-daemon.enable = true;
-          security.pam.enableSudoTouchIdAuth = true;
           nixpkgs = {
             overlays = with inputs; [
               spacebar.overlay
             ];
+            config.allowUnfree = true;
           };
           environment.shells = [ pkgs.zsh ];
+
+          # not sure why I have to set this. I do it in modules/home.nix, but it's not happy
+          programs.zsh.enable = true;
         })
       ];
     };
