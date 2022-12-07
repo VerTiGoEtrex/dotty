@@ -1,10 +1,11 @@
 { pkgs, lib, config, home-manager, nix-darwin, inputs, ... }: {
 
-imports = [./vscode.nix];
-
-home.stateVersion = "21.11";
-home.packages = with pkgs; [
+imports = [
+  ./home/vscode.nix
 ];
+
+home.stateVersion = "22.11";
+home.packages = with pkgs; [];
 
 programs.zsh.enable = true;
 
