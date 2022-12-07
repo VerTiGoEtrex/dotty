@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }: {
 
 imports = [
-  ./mac/alfred.nix
-  ./mac/rectangle.nix
+  ./mac/cask_impure/alfred.nix
+  ./mac/cask_impure/rectangle.nix
 ];
 
 # Since this is an Andruil config, assume config is at `~/sources/dotty` and make some helpful
