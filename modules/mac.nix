@@ -1,5 +1,13 @@
 { config, pkgs, lib, ... }: {
 
+# imports = [ ./mac/alfred.nix ];
+
+# Since this is an Andruil config, assume config is at `~/sources/dotty` and make some helpful
+# aliases for "darwin-rebuild"
+environment.shellAliases.rb = "darwin-rebuild --flake \$HOME/sources/dotty";
+environment.shellAliases.rbb = "darwin-rebuild --flake \$HOME/sources/dotty build";
+environment.shellAliases.rbs = "darwin-rebuild --flake \$HOME/sources/dotty switch";
+
 nix = {
   package = pkgs.nix;
   extraOptions = ''
@@ -61,7 +69,7 @@ services.yabai = {
 };
 
 services.spacebar = {
-  enable = true;
+  enable = false;
   package = pkgs.spacebar;
   config = {
     position = "bottom";
