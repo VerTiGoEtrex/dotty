@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }: {
 
-imports = [ ./mac/alfred.nix ];
+imports = [
+  ./mac/alfred.nix
+  ./mac/rectangle.nix
+];
 
 # Since this is an Andruil config, assume config is at `~/sources/dotty` and make some helpful
 # aliases for "darwin-rebuild"

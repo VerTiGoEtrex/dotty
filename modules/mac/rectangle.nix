@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 with pkgs; 
 let
-  cfg = config.programs.alfred;
-  pname = "alfred";
-  version = "5.0.5_2096";
-  url = "https://cachefly.alfredapp.com/Alfred_${version}.dmg";
-  hash = "sha256-nSh0XOCp4SorzRMoFlehtPi0kqY+TqKxhhomG2JqOK0=";
+  cfg = config.programs.rectangle;
+  pname = "rectangle";
+  version = "0.63";
+  url = "https://github.com/rxhanson/Rectangle/releases/download/v${version}/Rectangle${version}.dmg";
+  hash = "sha256-xgO9fqf8PX0SwEsMVef3pBiaLblTgo9ZNrqHUn0+JIg=";
   drv = stdenvNoCC.mkDerivation rec {
       inherit pname version;
 
@@ -24,7 +24,7 @@ let
 
       installPhase = ''
         mkdir -p $out/Applications
-        cp -R "Alfred 5.app" $out/Applications/
+        cp -R "Rectangle.app" $out/Applications/
       '';
 
       meta.platforms = lib.platforms.darwin;
@@ -32,12 +32,12 @@ let
 in
 with lib;
 {
-  options.programs.alfred = {
+  options.programs.rectangle = {
     enable = mkOption {
       type = types.bool;
       default = true;
       description = ''
-        Installs alfred
+        Installs Rectangle
       '';
     };
   };
