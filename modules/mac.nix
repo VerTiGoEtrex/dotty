@@ -11,6 +11,11 @@ environment.shellAliases.rb = "darwin-rebuild --flake \$HOME/sources/dotty";
 environment.shellAliases.rbb = "darwin-rebuild --flake \$HOME/sources/dotty build";
 environment.shellAliases.rbs = "darwin-rebuild --flake \$HOME/sources/dotty switch";
 
+# Some useful mac `.app`s that require to be installed as global apps...
+environment.systemPackages = [
+  pkgs.iterm2
+];
+
 nix = {
   package = pkgs.nix;
   extraOptions = ''
