@@ -6,6 +6,8 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
 Install homebrew.
+Homebrew provides an easy way to install a few mac GUI apps via `cask` or `mas`.
+I'm not a fan of this dependency - ideally everything is pure (and apps cannot update themselves) - but this is a necessary evil to get useful apps like Alfred installed.
 
 TODO: Specify your hostname and username...
 
