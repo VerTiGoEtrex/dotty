@@ -2,6 +2,7 @@
 {
   imports = [
     ./cask_impure/alfred.nix
+    ./cask_impure/android-studio.nix
     ./cask_impure/iterm2.nix
     ./cask_impure/rectangle.nix
     ./cask_impure/zoom.nix
