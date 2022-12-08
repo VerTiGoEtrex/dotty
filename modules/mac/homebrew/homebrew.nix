@@ -20,12 +20,11 @@
 
     # TODO add 1password and xcode, possibly via homebrew.masApps? Prefer no.
     
-    environment.shellInit = ''
+    environment.interactiveShellInit = builtins.trace "wat" ''
       eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
     '';
 
     system.activationScripts.preUserActivation.text = ''
-      echo "${config.homebrew.brewPrefix}"
       if [ ! -f ${config.homebrew.brewPrefix}/brew ]; then
         echo "Attempting to install homebrew for you!"
         ${pkgs.bash}/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
