@@ -1,6 +1,7 @@
 { pkgs, lib, config, home-manager, nix-darwin, inputs, ... }: {
 
 imports = [
+  ./home/flutter.nix
   ./home/vscode.nix
 ];
 
