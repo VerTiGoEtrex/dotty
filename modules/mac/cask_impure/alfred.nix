@@ -1,9 +1,8 @@
 { config, pkgs, lib, ... }:
-with pkgs; 
+with lib;
 let
   cfg = config.programs.alfred;
 in
-with lib;
 {
   options.programs.alfred = {
     enable = mkOption {
@@ -16,8 +15,10 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    homebrew.casks = [ 
-      "alfred" 
-    ];
+    assertions = [ { 
+      assertion = config.homebrew.enable == true;
+      message = "homebrew.enable must be set to install Alfred.";
+    } ];
+    homebrew.casks = builtins.trace (config.homebrew.enable == true) [ "alfred" ];
   };
 }

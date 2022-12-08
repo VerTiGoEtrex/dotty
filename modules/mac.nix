@@ -5,6 +5,17 @@ imports = [
   ./mac/cask_impure/rectangle.nix
 ];
 
+# We use homebrew cask to install a few GUI apps
+homebrew.enable = true;
+system.activationScripts.preUserActivation.text = ''
+  # Check that homebrew is installed. Panic if not.
+  echo >&2 "Homebrew must be installed..."
+  if [ ! -f "${config.homebrew.brewPrefix}/brew" ]; then
+    echo -e "\e[1;31merror: Homebrew is not installed PANIC!! Install homebrew from https://brew.sh/ \e[0m" >&2
+    exit 2;
+  fi
+'';
+
 # Since this is an Andruil config, assume config is at `~/sources/dotty` and make some helpful
 # aliases for "darwin-rebuild"
 environment.shellAliases.rb = "darwin-rebuild --flake \$HOME/sources/dotty";
