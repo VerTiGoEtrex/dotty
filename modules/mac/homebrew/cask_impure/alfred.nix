@@ -19,6 +19,6 @@ in
       assertion = config.homebrew.enable == true;
       message = "homebrew.enable must be set to install Alfred.";
     } ];
-    homebrew.casks = builtins.trace (config.homebrew.enable == true) [ "alfred" ];
+    homebrew.casks = [ "alfred" ];
   };
 }
