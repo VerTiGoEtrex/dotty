@@ -2,6 +2,7 @@
 {
   imports = [
     ./cask_impure/alfred.nix
+    ./cask_impure/iterm2.nix
     ./cask_impure/rectangle.nix
   ];
 
@@ -19,9 +20,9 @@
 
     # TODO add 1password and xcode, possibly via homebrew.masApps? Prefer no.
     
-    #environment.shellInit = ''
-    #  eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
-    #'';
+    environment.shellInit = ''
+      eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
+    '';
 
     system.activationScripts.preUserActivation.text = ''
       echo "${config.homebrew.brewPrefix}"
@@ -29,7 +30,8 @@
         echo "Attempting to install homebrew for you!"
         ${pkgs.bash}/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       fi
-      echo >&2 "Friendly reminder: To remain idempotent, nix will not auto-upgrade homebrew or its formulae.\nPeriodically run 'brew update && brew upgrade --cask' on your own convenience."
+      echo >&2 "Friendly reminder: To remain idempotent, nix will not auto-upgrade homebrew or its formulae."
+      echo >&2 "Periodically run 'brew update && brew upgrade --cask' on your own convenience."
     '';
   };
 }
