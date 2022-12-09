@@ -20,6 +20,9 @@
     homebrew.taps = [
       "homebrew/cask"
     ];
+    homebrew.masApps = {
+      "XCode" = 497799835;
+    };
 
     # TODO add 1password and xcode, possibly via homebrew.masApps? Prefer no.
     

@@ -1,3 +1,7 @@
+## Install 1Password
+
+Sadly, this is not automated yet as it's not available on the app store for some reason.
+
 ## Install Nix.
 I have it setup for multi-user which I highly recommend
 

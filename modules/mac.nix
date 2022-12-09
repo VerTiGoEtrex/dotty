@@ -29,6 +29,8 @@ system.activationScripts.postActivation.text = ''
   sudo chsh -s ${lib.getBin pkgs.zsh}/bin/zsh ncrocker
 '';
 
+users.users.ncrocker.packages = [ pkgs.cocoapods ];
+
 security.pam.enableSudoTouchIdAuth = true;
 
 services.yabai = {
