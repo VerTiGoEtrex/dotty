@@ -29,6 +29,14 @@ system.activationScripts.postActivation.text = ''
   sudo chsh -s ${lib.getBin pkgs.zsh}/bin/zsh ncrocker
 '';
 
+system.defaults.dock.orientation = "left";
+system.defaults.dock.show-recents = false;
+system.defaults.dock.showhidden = true;
+system.defaults.dock.tilesize = 64;
+system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
+system.defaults.NSGlobalDomain.KeyRepeat = 1;
+system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
+
 users.users.ncrocker.packages = [ pkgs.cocoapods ];
 
 security.pam.enableSudoTouchIdAuth = true;
